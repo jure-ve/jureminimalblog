@@ -1,0 +1,551 @@
+/*
+Theme Name: Jure Minimal Blog
+Theme URI: https://juredev.com/blog/
+Author: Jure
+Author URI: https://juredev.com
+Description: Jure Minimal Blog es un tema de WordPress limpio y minimalista diseñado para enfocarse en el contenido
+Version: 1.0 
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: jureminimalblog 
+*/
+
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #5f5a5a;
+    --accent-color: #517092;
+    --text-color: #e0e0e0;
+    --muted-text: #8a8a8a;
+    --article-bg: #2d2d2d;
+    --code-bg: #0d1117;
+    --comment-bg: #2d2d2d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+h1, h2, h3 {
+    color: #ffffff;
+    font-weight: 300;
+	margin-top: 0.25em;
+	margin-bottom: 0.25rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+header nav { 
+    display: flex;
+    justify-content: center; 
+}
+
+#primary-menu.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#primary-menu.menu li {
+    margin-right: 1em;
+}
+
+#primary-menu.menu li:last-child {
+    margin-right: 0;
+}
+
+#primary-menu.menu a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color); 
+    padding: 0.5em 0;
+}
+
+#primary-menu.menu a:hover {
+    color: var(--accent-color); 
+}
+
+blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    background-color: rgba(0, 123, 255, 0.05);
+    font-style: italic;
+    color: var(--muted-text);
+}
+
+blockquote p {
+    margin: 0;
+}
+
+code {
+    background-color: var(--code-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    color: #c9d1d9;
+}
+
+pre {
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    line-height: 1.5;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    font-size: 0.95em;
+}
+
+.article {
+    background-color: var(--article-bg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.article-title {
+    text-align: center;
+	font-size: 3rem;
+}
+
+.article-date {
+    color: var(--muted-text);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+	text-align: center;
+	display: block;
+}
+
+.article-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 3px;
+    margin: 1.5rem 0;
+}
+
+.article-content {
+    font-size: 1.1rem;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    line-height: 1.7;
+}
+
+.comments-area {
+    margin-top: 3rem;
+}
+
+#comments h3.comments-title { 
+    font-size: 1.5em; 
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--secondary-color); 
+    padding-bottom: 0.5em;
+    color: #ffffff; 
+    font-weight: 300; 
+}
+
+ol.commentlist { 
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+ol.commentlist li.comment { 
+    background-color: var(--comment-bg); 
+    padding: 1.5rem; 
+    margin-bottom: 1.5rem; 
+    border-radius: 5px; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); 
+}
+
+ol.commentlist li.comment ul.children {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem; 
+    border-left: 1px solid var(--secondary-color); 
+    padding-left: 1.5rem;
+}
+
+.comment-body {
+     display: flex;  
+     gap: 1em; 
+}
+
+.comment-author.vcard {
+    margin-bottom: 0.5em; 
+    font-weight: bold;
+    color: var(--accent-color); 
+    font-size: 0.9rem; 
+}
+
+.comment-author img.avatar { 
+    border-radius: 50%; 
+    margin-right: 0.5em; 
+    vertical-align: middle; 
+}
+
+.comment-metadata {
+    font-size: 0.85em; 
+    color: var(--muted-text); 
+    margin-bottom: 1em;
+}
+
+.comment-metadata a {
+    color: var(--muted-text); 
+    text-decoration: none;
+}
+
+.comment-metadata a:hover {
+    text-decoration: underline;
+}
+
+.comment-content {
+    line-height: 1.6;
+    margin-bottom: 1em; 
+}
+
+.comment-content p {
+    margin-bottom: 1em; 
+}
+
+.reply {
+    font-size: 0.9rem; 
+    margin-top: 1em;
+}
+
+.reply a {
+    color: var(--accent-color); 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.reply a:hover {
+    text-decoration: underline;
+}
+
+.comment-navigation {
+    margin-top: 2em;
+    border-top: 1px solid var(--secondary-color);
+    padding-top: 1em;
+}
+
+.comment-navigation .nav-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-navigation .nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.comment-navigation .nav-links a:hover {
+     color: var(--accent-color);
+}
+
+p.no-comments { 
+    padding: 1em;
+    text-align: center;
+    color: var(--muted-text);
+    font-style: italic;
+}
+
+#respond { 
+    margin-top: 3rem; 
+    background-color: var(--comment-bg); 
+    padding: 1.5rem; 
+    border-radius: 5px; 
+    margin-bottom: 2rem; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); 
+}
+
+#reply-title { 
+    font-size: 1.5em; 
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--secondary-color); 
+    padding-bottom: 0.5em;
+    color: #ffffff; 
+    font-weight: 300; 
+}
+
+#reply-title small a { 
+    font-size: 0.6em; 
+    margin-left: 1em;
+    color: var(--muted-text);
+}
+
+.comment-form p {
+    margin-bottom: 1.5rem;
+}
+
+.comment-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    border: 1px solid var(--secondary-color); 
+    border-radius: 4px;
+    color: var(--text-color);
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.comment-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.comment-form input[type="submit"] {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.comment-form input[type="submit"]:hover {
+    background-color: #0069d9;
+}
+
+p.logged-in-as {
+    font-size: 0.9em;
+    margin-bottom: 1em;
+    color: var(--muted-text);
+}
+
+p.logged-in-as a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+p.logged-in-as a:hover {
+    text-decoration: underline;
+}
+
+.comment-notes,
+.comment-form-cookies-consent {
+    margin-bottom: 1em;
+    font-size: 0.85em;
+    color: var(--muted-text);
+}
+
+.required-field-message {
+     font-size: 0.9em;
+     color: var(--muted-text);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav a {
+    margin: 0 1rem;
+    color: var(--muted-text);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted-text);
+    margin-top: 3rem;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.article-content ul,
+.article-content ol {
+    margin-bottom: 1.5em; 
+    padding-left: 1em; 
+}
+
+.article-content ul {
+    list-style-type: disc; 
+}
+
+.article-content ol {
+    list-style-type: decimal; 
+}
+
+.article-content li {
+    margin-bottom: 0.5em; 
+    line-height: 1.6; 
+}
+
+.article-content ul li::marker {
+    color: var(--accent-color); 
+}
+
+.article-content ol li::marker {
+    font-weight: bold;
+    color: var(--text-color); 
+}
+
+.post-navigation {
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 2em; 
+    margin-bottom: 2em; 
+    padding: 1em 0; 
+    border-top: 1px solid #eee; 
+    border-bottom: 1px solid #eee; 
+}
+
+.post-navigation .nav-previous {
+    width: 48%; 
+}
+
+.post-navigation .nav-next {
+    width: 48%; 
+    text-align: right; 
+}
+
+.post-navigation a {
+    text-decoration: none; 
+    color: var(--text-color); 
+    font-weight: bold; 
+    display: block; 
+    padding: 0.5em 0; 
+}
+
+.post-navigation a:hover {
+    color: var(--accent-color); 
+}
+
+.post-navigation .nav-previous a::before {
+    content: "\00AB\00A0"; 
+    font-size: 1.2em;
+}
+
+.post-navigation .nav-next a::after {
+    content: "\00A0\00BB"; 
+    font-size: 1.2em;
+}
+
+.list-post {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+	padding-bottom: 0.9rem;
+}
+
+.list-post .header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-start; 
+	margin-top: 1em;
+}
+
+.list-post .title {
+    font-weight: 500;
+    flex: 1; 
+    margin: 0;
+    word-break: keep-all;
+}
+
+.list-post .date {
+    flex-shrink: 0;
+    color: #666;
+    font-size: 0.9rem;
+    padding-top: 0.2em; 
+    white-space: nowrap; 
+}
+
+.list-post .title a, 
+.list-post .date a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.list-post .content {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 0.5rem 0;
+    }
+
+    nav {
+        margin-top: 0;
+    }
+    
+    .article {
+        padding: 1.5rem;
+    }
+
+    .list-post .header {
+        margin-left: 0.5;
+    }
+    
+    .list-post .date {
+        margin-right: 0.5;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    nav a {
+        margin: 0 0.5rem;
+    }
+}
