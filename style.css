@@ -1,6 +1,6 @@
 /*
 Theme Name: Jure Minimal Blog
-Theme URI: https://juredev.com/blog/
+Theme URI: https://github.com/jure-ve/jureminimalblog
 Author: Jure
 Author URI: https://juredev.com
 Description: Jure Minimal Blog es un tema de WordPress limpio y minimalista diseñado para enfocarse en el contenido
@@ -11,14 +11,14 @@ Text Domain: jureminimalblog
 */
 
 :root {
-    --primary-color: #1a1a1a;
-    --secondary-color: #5f5a5a;
-    --accent-color: #517092;
-    --text-color: #e0e0e0;
-    --muted-text: #8a8a8a;
-    --article-bg: #2d2d2d;
-    --code-bg: #0d1117;
-    --comment-bg: #2d2d2d;
+    --primary-color: #2a2a2a; 
+    --secondary-color: #6b6b6b; 
+    --accent-color: #5a829b; 
+    --text-color: #e8e8e8; 
+    --muted-text: #a0a0a0; 
+    --article-bg: #383838; 
+    --code-bg: #1e2526; 
+    --comment-bg: #383838; 
 }
 
 * {
@@ -108,12 +108,15 @@ code {
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.9em;
     color: #c9d1d9;
+    display:block;
+    overflow-x:auto;
 }
 
 pre {
     background-color: var(--code-bg);
     padding: 1rem;
     border-radius: 5px;
+    display:block;
     overflow-x: auto;
     margin: 1.5rem 0;
     line-height: 1.5;
@@ -164,220 +167,95 @@ pre code {
     line-height: 1.7;
 }
 
-.comments-area {
-    margin-top: 3rem;
-}
-
-#comments h3.comments-title { 
-    font-size: 1.5em; 
-    margin-bottom: 1em;
-    border-bottom: 1px solid var(--secondary-color); 
-    padding-bottom: 0.5em;
-    color: #ffffff; 
-    font-weight: 300; 
-}
-
 ol.commentlist { 
     list-style: none; 
     padding: 0;
     margin: 0;
 }
 
-ol.commentlist li.comment { 
+.comment {
     background-color: var(--comment-bg); 
-    padding: 1.5rem; 
-    margin-bottom: 1.5rem; 
-    border-radius: 5px; 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); 
+    color: var(--text-color); 
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-ol.commentlist li.comment ul.children {
-    list-style: none;
-    padding: 0;
-    margin-top: 1.5rem;
-    margin-left: 1.5rem; 
-    border-left: 1px solid var(--secondary-color); 
-    padding-left: 1.5rem;
-}
-
-.comment-body {
-     display: flex;  
-     gap: 1em; 
-}
-
-.comment-author.vcard {
-    margin-bottom: 0.5em; 
+.comment .comment-author {
+    font-size: 18px;
     font-weight: bold;
     color: var(--accent-color); 
-    font-size: 0.9rem; 
 }
 
-.comment-author img.avatar { 
-    border-radius: 50%; 
-    margin-right: 0.5em; 
-    vertical-align: middle; 
-}
-
-.comment-metadata {
-    font-size: 0.85em; 
+.comment .comment-date {
+    font-size: 14px;
     color: var(--muted-text); 
-    margin-bottom: 1em;
 }
 
-.comment-metadata a {
-    color: var(--muted-text); 
-    text-decoration: none;
-}
-
-.comment-metadata a:hover {
-    text-decoration: underline;
-}
-
-.comment-content {
+.comment .comment-content {
+    font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 1em; 
 }
 
-.comment-content p {
-    margin-bottom: 1em; 
-}
-
-.reply {
-    font-size: 0.9rem; 
-    margin-top: 1em;
-}
-
-.reply a {
+.comment a {
     color: var(--accent-color); 
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.reply a:hover {
     text-decoration: underline;
 }
 
-.comment-navigation {
-    margin-top: 2em;
-    border-top: 1px solid var(--secondary-color);
-    padding-top: 1em;
+.comment a:hover {
+    color: #6a9cbf; 
 }
 
-.comment-navigation .nav-links {
-    display: flex;
-    justify-content: space-between;
+.comment-respond {
+    background-color: #383838;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.comment-navigation .nav-links a {
-    color: var(--text-color);
-    text-decoration: none;
-}
-
-.comment-navigation .nav-links a:hover {
-     color: var(--accent-color);
-}
-
-p.no-comments { 
-    padding: 1em;
-    text-align: center;
-    color: var(--muted-text);
-    font-style: italic;
-}
-
-#respond { 
-    margin-top: 3rem; 
-    background-color: var(--comment-bg); 
-    padding: 1.5rem; 
-    border-radius: 5px; 
-    margin-bottom: 2rem; 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); 
-}
-
-#reply-title { 
-    font-size: 1.5em; 
-    margin-bottom: 1em;
-    border-bottom: 1px solid var(--secondary-color); 
-    padding-bottom: 0.5em;
-    color: #ffffff; 
-    font-weight: 300; 
-}
-
-#reply-title small a { 
-    font-size: 0.6em; 
-    margin-left: 1em;
-    color: var(--muted-text);
-}
-
-.comment-form p {
-    margin-bottom: 1.5rem;
-}
-
-.comment-form label {
+.comment-respond label {
+    color: #a0a0a0;
+    font-size: 14px;
+    margin-bottom: 5px;
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: var(--text-color);
 }
 
-.comment-form input[type="text"],
-.comment-form input[type="email"],
-.comment-form input[type="url"],
-.comment-form textarea {
+.comment-respond input[type="text"],
+.comment-respond input[type="email"],
+.comment-respond input[type="url"],
+.comment-respond textarea {
+    background-color: #2a2a2a;
+    color: #e8e8e8;
+    border: 1px solid #6b6b6b;
+    padding: 10px;
     width: 100%;
-    padding: 0.75rem;
-    background-color: var(--primary-color);
-    border: 1px solid var(--secondary-color); 
-    border-radius: 4px;
-    color: var(--text-color);
-    font-family: inherit;
     box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 16px;
 }
 
-.comment-form textarea {
-    min-height: 150px;
-    resize: vertical;
+.comment-respond input[type="text"]:focus,
+.comment-respond input[type="email"]:focus,
+.comment-respond input[type="url"]:focus,
+.comment-respond textarea:focus {
+    border-color: #5a829b;
+    outline: none;
 }
 
-.comment-form input[type="submit"] {
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
+.comment-respond .form-submit input[type="submit"] {
+    background-color: #5a829b;
+    color: #e8e8e8;
+    border: 1px solid #6b6b6b;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
+    border-radius: 3px;
 }
 
-.comment-form input[type="submit"]:hover {
-    background-color: #0069d9;
-}
-
-p.logged-in-as {
-    font-size: 0.9em;
-    margin-bottom: 1em;
-    color: var(--muted-text);
-}
-
-p.logged-in-as a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-p.logged-in-as a:hover {
-    text-decoration: underline;
-}
-
-.comment-notes,
-.comment-form-cookies-consent {
-    margin-bottom: 1em;
-    font-size: 0.85em;
-    color: var(--muted-text);
-}
-
-.required-field-message {
-     font-size: 0.9em;
-     color: var(--muted-text);
+.comment-respond .form-submit input[type="submit"]:hover {
+    background-color: #6a9cbf;
 }
 
 a {
@@ -509,6 +387,11 @@ footer {
 .list-post .date a {
     color: var(--text-color);
     text-decoration: none;
+}
+
+.list-post .title a:hover, 
+.list-post .date a:hover {
+    color: var(--accent-color);
 }
 
 .list-post .content {
