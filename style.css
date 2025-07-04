@@ -108,7 +108,7 @@ code {
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.9em;
     color: #c9d1d9;
-    display: inline;
+    display: block;
     overflow-x: auto;
     white-space: pre; 
 }
@@ -143,6 +143,9 @@ pre code {
 .article-title {
     text-align: center;
 	font-size: 3rem;
+	word-wrap: break-word;   
+	overflow-wrap: break-word; 
+	hyphens: auto;   
 }
 
 .article-date {
@@ -365,18 +368,21 @@ footer {
 }
 
 .list-post .header {
-    display: flex;
+     display: flex;
     justify-content: space-between;
     gap: 1rem;
     align-items: flex-start; 
-	margin-top: 1em;
+    margin-top: 1em;
+    flex-wrap: wrap;
 }
 
 .list-post .title {
     font-weight: 500;
     flex: 1; 
     margin: 0;
-    word-break: keep-all;
+    min-width: 0; 
+    word-break: break-word; 
+    overflow-wrap: break-word; 
 }
 
 .list-post .date {
