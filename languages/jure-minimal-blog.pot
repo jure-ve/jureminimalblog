@@ -1,0 +1,114 @@
+# Copyright (C) 2025 Jure
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Jure Minimal Blog 1.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jureminimalblog\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-12-23T10:49:08+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: jure-minimal-blog\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Jure Minimal Blog"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://github.com/jure-ve/jureminimalblog"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "A clean and minimalist WordPress theme designed to focus on content. Simple, fast, and multilingual (English/Spanish). Perfect for bloggers who value readability above all else."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Jure"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://juredev.com"
+msgstr ""
+
+#: category.php:25
+#: search.php:26
+#: tag.php:26
+msgid "Read more"
+msgstr ""
+
+#: category.php:32
+msgid "No posts available in this category."
+msgstr ""
+
+#: footer.php:2
+msgid "Jure Minimal Blog Theme"
+msgstr ""
+
+#: functions.php:42
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:80
+msgid "Home"
+msgstr ""
+
+#: header.php:12
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:27
+msgid "Toggle search"
+msgstr ""
+
+#: index.php:20
+msgid "No posts available."
+msgstr ""
+
+#. translators: %s: search query
+#: search.php:10
+#, php-format
+msgid "Search results for: %s"
+msgstr ""
+
+#: search.php:36
+msgid "No results found."
+msgstr ""
+
+#: search.php:37
+msgid "Try searching with different keywords."
+msgstr ""
+
+#. translators: %s: list of categories
+#: single.php:21
+#, php-format
+msgid "Categories: %s"
+msgstr ""
+
+#. translators: %s: list of tags
+#: single.php:27
+#, php-format
+msgid "Tags: %s"
+msgstr ""
+
+#: single.php:50
+msgid "Article not found."
+msgstr ""
+
+#. translators: %s: tag name
+#: tag.php:11
+#, php-format
+msgid "Tag: %s"
+msgstr ""
+
+#: tag.php:33
+msgid "No posts available with this tag."
+msgstr ""

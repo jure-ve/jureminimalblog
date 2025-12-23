@@ -1,56 +1,95 @@
-# Jure Minimal Blog Theme
+# Jure Minimal Blog
 
-Este es un tema minimalista para WordPress, basado en un template HTML y CSS personalizado.
+Un tema de WordPress que va directo al grano: **tu contenido es lo más importante**.
 
-## Descripción
+Creado para bloggers que valoran la simplicidad, la velocidad y un diseño que no distrae. Sin trucos, sin efectos innecesarios, solo tu escritura brillando como debe ser.
 
-Jure Minimal Blog es un tema de WordPress limpio y minimalista diseñado para enfocarse en el contenido. Cuenta con una estética sencilla, optimizada para la legibilidad y una navegación clara.
+## ¿Por qué este tema?
 
-## Características
+Porque no todos los blogs necesitan 47 sliders, 3 sidebars y un reproductor de música de fondo. A veces solo necesitas:
 
-* Diseño minimalista y responsivo.
-* Basado en CSS personalizado con variables para facilitar la personalización.
-* Estructura de tema tradicional de WordPress (`header.php`, `index.php`, `single.php`, `footer.php`, etc.).
-* Menú de navegación dinámico configurable desde el administrador de WordPress.
-* Template específico para entradas individuales (`single.php`) mostrando contenido completo, categorías, etiquetas y comentarios.
-* Templates específicos para archivos de categorías (`category.php`) y etiquetas (`tag.php`) con un diseño diferente al de la página principal.
-* Estilos personalizados para la sección de comentarios y el formulario de comentarios.
+- 📝 **Texto legible** - Tipografía cuidada que no cansa la vista
+- ⚡ **Carga rápida** - Sin scripts pesados ni frameworks innecesarios  
+- 🌍 **Multilingüe** - Disponible en inglés y español (y el idioma que quieras añadir)
+- ♿ **Accesible** - Funciona con lectores de pantalla y navegación por teclado
+- 🎨 **Personalizable** - Variables CSS para cambiar colores sin tocar el código
+- 🔒 **Seguro** - Código limpio que sigue las mejores prácticas de WordPress
 
-## Instalación
+## Instalación (3 pasos, así de simple)
 
-1.  Descarga los archivos del tema.
-2.  Sube la carpeta `jureminimalblog` al directorio `/wp-content/themes/` de tu instalación de WordPress.
-3.  Ve a **Apariencia > Temas** en tu panel de administración de WordPress.
-4.  Encuentra el tema "Jure Minimal Blog" en la lista de temas disponibles y haz clic en "Activar".
-5.  (Opcional) Configura tu menú de navegación en **Apariencia > Menús** y asigna un menú a la ubicación "Menú Principal".
+1. Descarga el tema y súbelo a `/wp-content/themes/`
+2. Actívalo desde **Apariencia → Temas** en tu WordPress
+3. ¡Listo! Ya puedes empezar a escribir
 
-## Estructura del Tema
+**Extra**: Configura tu menú en **Apariencia → Menús** si quieres personalizar la navegación.
+
+## Idiomas disponibles
+
+El tema habla inglés por defecto, pero incluye traducción completa al **español**. 
+
+¿Necesitas otro idioma? Revisa la carpeta `/languages` donde encontrarás instrucciones para añadir el tuyo. Es más fácil de lo que piensas.
+
+## Personalización sin complicarte la vida
+
+Abre `style.css` y busca las variables al inicio. Cambia los colores a tu gusto:
+
+```css
+:root {
+    --primary-color: #2a2a2a;    /* Color de fondo principal */
+    --accent-color: #5a829b;      /* Color de enlaces */
+    --text-color: #e8e8e8;        /* Color del texto */
+    /* ... hay más, pero estas son las importantes */
+}
+```
+
+Guarda, refresca tu navegador, y voilà.
+
+## Lo que hay dentro
 
 ```
 jureminimalblog/
-├── style.css           (Hoja de estilos principal con información del tema)
-├── index.php           (Plantilla para la página principal/archivo de posts)
-├── single.php          (Plantilla para entradas individuales)
-├── category.php        (Plantilla para archivos de categorías)
-├── tag.php             (Plantilla para archivos de etiquetas)
-├── header.php          (Plantilla para el encabezado del sitio)
-├── footer.php          (Plantilla para el pie de página del sitio)
-├── functions.php       (Funciones y configuraciones del tema, como registro de menús)
-└── screenshot.png      (Captura de pantalla del tema - recomendado añadir una)
+├── style.css          → Aquí están tus estilos y las variables
+├── functions.php      → La magia de WordPress
+├── header.php         → Cabecera del sitio
+├── footer.php         → Pie de página
+├── index.php          → Lista de posts
+├── single.php         → Vista individual de cada post
+├── category.php       → Archivo de categorías
+├── tag.php            → Archivo de etiquetas
+└── languages/         → Traducciones (¡aporta la tuya!)
 ```
 
-## Personalización
+## Características técnicas (para los curiosos)
 
-Puedes personalizar el tema editando el archivo `style.css` para ajustar colores, tipografías, espaciado, etc. El tema utiliza variables CSS definidas en `:root` para facilitar la modificación de los colores principales.
+- ✅ HTML5 semántico
+- ✅ Optimizado para SEO (soporte para `title-tag`)
+- ✅ Imágenes destacadas listas para usar
+- ✅ Escapado de datos riguroso (seguridad primero)
+- ✅ Compatible con WordPress.org
+- ✅ Comentarios incluidos (pero puedes desactivarlos si prefieres)
+- ✅ Responsive design (se ve bien en móviles, tablets, lo que sea)
+
+## Versión actual: 1.2
+
+**Novedades en esta versión**:
+- 🌍 Soporte multilingüe completo (inglés/español)
+- 🔄 Código fuente en inglés (estándar WordPress)
+- 📚 Documentación mejorada para traductores
+- ✨ Mejoras de accesibilidad
+
+## ¿Encontraste un bug? ¿Tienes ideas?
+
+Abre un issue en el repositorio o escríbeme directamente. Siempre estoy buscando formas de mejorar este tema sin perder su esencia minimalista.
 
 ## Licencia
 
-Este tema está bajo la Licencia Pública General GNU v2 o posterior. Consulta `http://www.gnu.org/licenses/gpl-2.0.html` para más detalles.
+GPL v2 o posterior. Úsalo, modifícalo, compártelo. Es libre.
 
-## Autor
+## Hecho con ☕ por
 
-Jure
+**Jure** - [juredev.com](https://juredev.com)
 
-## Contribuciones
+---
 
-Las contribuciones son bienvenidas. Si encuentras algún error o tienes sugerencias, por favor, abre un 'issue' o envía un 'pull request' en el repositorio.
+*"Menos es más" no es solo un cliché, es una filosofía de diseño.*
+

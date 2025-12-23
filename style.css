@@ -3,22 +3,22 @@ Theme Name: Jure Minimal Blog
 Theme URI: https://github.com/jure-ve/jureminimalblog
 Author: Jure
 Author URI: https://juredev.com
-Description: Jure Minimal Blog es un tema de WordPress limpio y minimalista diseñado para enfocarse en el contenido
-Version: 1.0 
+Description: A clean and minimalist WordPress theme designed to focus on content. Simple, fast, and multilingual (English/Spanish). Perfect for bloggers who value readability above all else.
+Version: 1.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: jureminimalblog 
+Text Domain: jure-minimal-blog
 */
 
 :root {
-    --primary-color: #2a2a2a; 
-    --secondary-color: #6b6b6b; 
-    --accent-color: #5a829b; 
-    --text-color: #e8e8e8; 
-    --muted-text: #a0a0a0; 
-    --article-bg: #383838; 
-    --code-bg: #1e2526; 
-    --comment-bg: #383838; 
+    --primary-color: #2a2a2a;
+    --secondary-color: #6b6b6b;
+    --accent-color: #5a829b;
+    --text-color: #e8e8e8;
+    --muted-text: #a0a0a0;
+    --article-bg: #383838;
+    --code-bg: #1e2526;
+    --comment-bg: #383838;
 }
 
 * {
@@ -46,20 +46,22 @@ header {
     margin-bottom: 2rem;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: #ffffff;
     font-weight: 300;
-	margin-top: 0.25em;
-	margin-bottom: 0.25rem;
+    margin-top: 0.25em;
+    margin-bottom: 0.25rem;
 }
 
 h1 {
     font-size: 2.5rem;
 }
 
-header nav { 
+header nav {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
 }
 
 #primary-menu.menu {
@@ -80,12 +82,12 @@ header nav {
 #primary-menu.menu a {
     display: block;
     text-decoration: none;
-    color: var(--text-color); 
+    color: var(--text-color);
     padding: 0.5em 0;
 }
 
 #primary-menu.menu a:hover {
-    color: var(--accent-color); 
+    color: var(--accent-color);
 }
 
 blockquote {
@@ -110,7 +112,7 @@ code {
     color: #c9d1d9;
     display: block;
     overflow-x: auto;
-    white-space: pre; 
+    white-space: pre;
 }
 
 pre {
@@ -121,15 +123,15 @@ pre {
     overflow-x: auto;
     margin: 1.5rem 0;
     line-height: 1.5;
-    white-space: pre; 
-    max-width: 100%; 
+    white-space: pre;
+    max-width: 100%;
 }
 
 pre code {
     padding: 0;
     background: transparent;
     font-size: 0.95em;
-    white-space: pre !important; 
+    white-space: pre !important;
 }
 
 .article {
@@ -142,18 +144,18 @@ pre code {
 
 .article-title {
     text-align: center;
-	font-size: 3rem;
-	word-wrap: break-word;   
-	overflow-wrap: break-word; 
-	hyphens: auto;   
+    font-size: 3rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .article-date {
     color: var(--muted-text);
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
-	text-align: center;
-	display: block;
+    text-align: center;
+    display: block;
 }
 
 .article-image {
@@ -174,15 +176,15 @@ pre code {
     line-height: 1.7;
 }
 
-ol.commentlist { 
-    list-style: none; 
+ol.commentlist {
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .comment {
-    background-color: var(--comment-bg); 
-    color: var(--text-color); 
+    background-color: var(--comment-bg);
+    color: var(--text-color);
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -192,12 +194,12 @@ ol.commentlist {
 .comment .comment-author {
     font-size: 18px;
     font-weight: bold;
-    color: var(--accent-color); 
+    color: var(--accent-color);
 }
 
 .comment .comment-date {
     font-size: 14px;
-    color: var(--muted-text); 
+    color: var(--muted-text);
 }
 
 .comment .comment-content {
@@ -206,12 +208,12 @@ ol.commentlist {
 }
 
 .comment a {
-    color: var(--accent-color); 
+    color: var(--accent-color);
     text-decoration: underline;
 }
 
 .comment a:hover {
-    color: #6a9cbf; 
+    color: #6a9cbf;
 }
 
 .comment-respond {
@@ -293,113 +295,113 @@ footer {
 
 .article-content ul,
 .article-content ol {
-    margin-bottom: 1.5em; 
-    padding-left: 1em; 
+    margin-bottom: 1.5em;
+    padding-left: 1em;
 }
 
 .article-content ul {
-    list-style-type: disc; 
+    list-style-type: disc;
 }
 
 .article-content ol {
-    list-style-type: decimal; 
+    list-style-type: decimal;
 }
 
 .article-content li {
-    margin-bottom: 0.5em; 
-    line-height: 1.6; 
+    margin-bottom: 0.5em;
+    line-height: 1.6;
 }
 
 .article-content ul li::marker {
-    color: var(--accent-color); 
+    color: var(--accent-color);
 }
 
 .article-content ol li::marker {
     font-weight: bold;
-    color: var(--text-color); 
+    color: var(--text-color);
 }
 
 .post-navigation {
-    display: flex; 
-    justify-content: space-between; 
-    margin-top: 2em; 
-    margin-bottom: 2em; 
-    padding: 1em 0; 
-    border-top: 1px solid #eee; 
-    border-bottom: 1px solid #eee; 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1em 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
 .post-navigation .nav-previous {
-    width: 48%; 
+    width: 48%;
 }
 
 .post-navigation .nav-next {
-    width: 48%; 
-    text-align: right; 
+    width: 48%;
+    text-align: right;
 }
 
 .post-navigation a {
-    text-decoration: none; 
-    color: var(--text-color); 
-    font-weight: bold; 
-    display: block; 
-    padding: 0.5em 0; 
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    display: block;
+    padding: 0.5em 0;
 }
 
 .post-navigation a:hover {
-    color: var(--accent-color); 
+    color: var(--accent-color);
 }
 
 .post-navigation .nav-previous a::before {
-    content: "\00AB\00A0"; 
+    content: "\00AB\00A0";
     font-size: 1.2em;
 }
 
 .post-navigation .nav-next a::after {
-    content: "\00A0\00BB"; 
+    content: "\00A0\00BB";
     font-size: 1.2em;
 }
 
 .list-post {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; 
-	padding-bottom: 0.9rem;
+    gap: 1.5rem;
+    padding-bottom: 0.9rem;
 }
 
 .list-post .header {
-     display: flex;
+    display: flex;
     justify-content: space-between;
     gap: 1rem;
-    align-items: flex-start; 
+    align-items: flex-start;
     margin-top: 1em;
     flex-wrap: wrap;
 }
 
 .list-post .title {
     font-weight: 500;
-    flex: 1; 
+    flex: 1;
     margin: 0;
-    min-width: 0; 
-    word-break: break-word; 
-    overflow-wrap: break-word; 
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .list-post .date {
     flex-shrink: 0;
     color: #666;
     font-size: 0.9rem;
-    padding-top: 0.2em; 
-    white-space: nowrap; 
+    padding-top: 0.2em;
+    white-space: nowrap;
 }
 
-.list-post .title a, 
+.list-post .title a,
 .list-post .date a {
     color: var(--text-color);
     text-decoration: none;
 }
 
-.list-post .title a:hover, 
+.list-post .title a:hover,
 .list-post .date a:hover {
     color: var(--accent-color);
 }
@@ -421,7 +423,7 @@ footer {
     nav {
         margin-top: 0;
     }
-    
+
     .article {
         padding: 1.5rem;
     }
@@ -429,16 +431,187 @@ footer {
     .list-post .header {
         margin-left: 0.5;
     }
-    
+
     .list-post .date {
         margin-right: 0.5;
     }
-    
+
     h1 {
         font-size: 2rem;
     }
-    
+
     nav a {
         margin: 0 0.5rem;
+    }
+}
+
+/* Accessibility classes */
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.skip-link:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: #21759b;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}
+
+/* Search Toggle Button */
+.search-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+    color: var(--text-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.search-toggle:hover {
+    color: var(--accent-color);
+}
+
+.search-toggle:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.search-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Search Form Container */
+.header-search-form {
+    display: none;
+    margin-top: 1rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-search-form.is-active {
+    display: block;
+    animation: fadeSlideDown 0.3s ease;
+}
+
+.header-search-form form {
+    position: relative;
+}
+
+.header-search-form input[type="search"] {
+    width: 100%;
+    padding: 0.75em 1em;
+    border: 1px solid var(--secondary-color);
+    background: var(--article-bg);
+    color: var(--text-color);
+    border-radius: 3px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.header-search-form input[type="search"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(90, 130, 155, 0.2);
+}
+
+.header-search-form input[type="search"]::placeholder {
+    color: var(--muted-text);
+}
+
+.header-search-form .search-submit {
+    position: absolute;
+    right: 0.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.4em 1em;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.header-search-form .search-submit:hover {
+    background: #6a9cbf;
+}
+
+/* Search Results Page */
+.search-no-results {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--muted-text);
+}
+
+.search-no-results p {
+    margin-bottom: 1rem;
+}
+
+.archive-header .archive-title span {
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+/* Animations */
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments for search */
+@media (max-width: 768px) {
+    .search-toggle {
+        margin-top: 0.25rem;
+    }
+
+    .header-search-form {
+        max-width: 100%;
+    }
+
+    .header-search-form .search-submit {
+        position: static;
+        transform: none;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .header-search-form input[type="search"] {
+        padding-right: 1em;
     }
 }
