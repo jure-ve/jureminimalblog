@@ -36,7 +36,7 @@
 				<?php get_search_form(); ?>
 			</div>
 			
-			<?php if ( is_home() || is_front_page() ) : ?>
+			<?php if ( is_home() || is_front_page() || is_search()) : ?>
 				<h1 class="site-description"><?php bloginfo( 'description' ); ?></h1>
 			<?php endif; ?>
         </header>

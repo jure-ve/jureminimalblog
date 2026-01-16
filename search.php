@@ -4,12 +4,12 @@
                 <div class="container">
                     <header class="archive-header">
                         <?php if ( have_posts() ) : ?>
-                            <h1 class="archive-title">
+                            <h2 class="archive-title">
                                 <?php
                                 /* translators: %s: search query */
                                 printf( esc_html__( 'Search results for: %s', 'jure-minimal-blog' ), '<span>' . get_search_query() . '</span>' );
                                 ?>
-                            </h1>
+                            </h2>
                         <?php endif; ?>
                     </header>
 
