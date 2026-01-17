@@ -67,7 +67,7 @@ add_action( 'after_setup_theme', 'jure_minimal_blog_setup' );
  * Enqueue scripts and styles.
  */
 function jure_minimal_blog_scripts() {
-	wp_enqueue_style( 'jure-minimal-blog-style', get_stylesheet_uri(), array(), '1.2' );
+	wp_enqueue_style( 'jure-minimal-blog-style', get_stylesheet_uri(), array(), '1.3' );
 	wp_enqueue_script( 'jure-minimal-blog-search', get_template_directory_uri() . '/assets/search-toggle.js', array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'jure_minimal_blog_scripts' );

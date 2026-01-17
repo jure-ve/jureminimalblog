@@ -1,18 +1,15 @@
-# Spanish (Spain) translation for Jure Minimal Blog
-# Copyright (C) 2025 Jure
-# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Jure Minimal Blog 1.2\n"
+"Project-Id-Version: Jure Minimal Blog 1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jureminimalblog\n"
 "Last-Translator: Jure <contact@juredev.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
-"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-12-23T10:18:43+00:00\n"
 "PO-Revision-Date: 2025-12-23 06:18-0400\n"
+"Language: es_ES\n"
 "X-Generator: Manual\n"
 "X-Domain: jure-minimal-blog\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -42,15 +39,16 @@ msgstr "Jure"
 msgid "https://juredev.com"
 msgstr "https://juredev.com"
 
-#: functions.php:41
+#: functions.php:42
 msgid "Primary Menu"
 msgstr "Menú Principal"
 
-#: functions.php:78
+#: functions.php:80
 msgid "Home"
 msgstr "Inicio"
 
 #: category.php:25
+#: search.php:26
 #: tag.php:26
 msgid "Read more"
 msgstr "Leer más"
@@ -114,3 +112,15 @@ msgstr "No se encontraron resultados."
 #: search.php:37
 msgid "Try searching with different keywords."
 msgstr "Intenta buscar con palabras clave diferentes."
+
+#: 404.php:18
+msgid "404"
+msgstr "404"
+
+#: 404.php:22
+msgid "Oops! That page can&rsquo;t be found. It looks like nothing was found at this location. Maybe try a search?"
+msgstr "¡Ups! Esa página no se encuentra. Parece que no hay nada en esta ubicación. ¿Tal vez prueba una búsqueda?"
+
+#: 404.php:29
+msgid "Back to Homepage"
+msgstr "Volver al Inicio"

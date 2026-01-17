@@ -69,9 +69,18 @@ jureminimalblog/
 - ✅ Comentarios incluidos (pero puedes desactivarlos si prefieres)
 - ✅ Responsive design (se ve bien en móviles, tablets, lo que sea)
 
-## Versión actual: 1.2
+## Versión actual: 1.3
 
 **Novedades en esta versión**:
+- ✨ **Nueva página 404 personalizada** con buscador integrado.
+- 🖼️ Agregado screenshot del tema para previsualización.
+- 🔍 **Mejoras SEO**: Optimización de títulos en resultados de búsqueda.
+- 🐛 Corrección visual: Descripción del blog ahora visible en resultados.
+- 🌍 Actualización de traducciones.
+
+## Historial de versiones
+
+### Versión 1.2
 - 🌍 Soporte multilingüe completo (inglés/español)
 - 🔄 Código fuente en inglés (estándar WordPress)
 - 📚 Documentación mejorada para traductores
