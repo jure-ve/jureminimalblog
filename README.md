@@ -56,29 +56,40 @@ jureminimalblog/
 ├── single.php         → Vista individual de cada post
 ├── category.php       → Archivo de categorías
 ├── tag.php            → Archivo de etiquetas
+├── inc/seo.php        → Módulo SEO & UX opcional
+├── assets/            → Scripts del tema
 └── languages/         → Traducciones (¡aporta la tuya!)
 ```
 
 ## Características técnicas (para los curiosos)
 
 - ✅ HTML5 semántico
-- ✅ Optimizado para SEO (soporte para `title-tag`)
+- ✅ Módulo SEO opcional (Open Graph, Twitter Cards, JSON-LD Schema)
+- ✅ Imagen social configurable por post o global (sin plugins externos)
 - ✅ Imágenes destacadas listas para usar
 - ✅ Escapado de datos riguroso (seguridad primero)
 - ✅ Compatible con WordPress.org
 - ✅ Comentarios incluidos (pero puedes desactivarlos si prefieres)
 - ✅ Responsive design (se ve bien en móviles, tablets, lo que sea)
 
-## Versión actual: 1.3
+## Versión actual: 1.4
 
 **Novedades en esta versión**:
-- ✨ **Nueva página 404 personalizada** con buscador integrado.
-- 🖼️ Agregado screenshot del tema para previsualización.
-- 🔍 **Mejoras SEO**: Optimización de títulos en resultados de búsqueda.
-- 🐛 Corrección visual: Descripción del blog ahora visible en resultados.
-- 🌍 Actualización de traducciones.
+- 🖼️ **Imagen social por post**: Meta box "Social Media Image" en el editor para configurar `og:image` y `twitter:image` por artículo.
+- 🌐 **Imagen social por defecto**: Nuevo campo en el Customizer para definir una imagen fallback global.
+- 🔄 **Fallback inteligente de imagen OG**: Prioridad: imagen por post → featured image → imagen por defecto.
+- 🃏 **Twitter Card adaptativo**: Usa `summary_large_image` cuando hay imagen, `summary` cuando no.
+- 🐛 **Fix CSS `<code>` inline**: Los bloques de código inline ya no rompen el flujo del texto.
+- 🔧 Reactivación de `meta description` en el módulo SEO.
 
 ## Historial de versiones
+
+### Versión 1.3
+- ✨ Nueva página 404 personalizada con buscador integrado.
+- 🖼️ Agregado screenshot del tema para previsualización.
+- 🔍 Mejoras SEO: Optimización de títulos en resultados de búsqueda.
+- 🐛 Corrección visual: Descripción del blog ahora visible en resultados.
+- 🌍 Actualización de traducciones.
 
 ### Versión 1.2
 - 🌍 Soporte multilingüe completo (inglés/español)

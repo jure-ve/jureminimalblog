@@ -4,7 +4,7 @@ Theme URI: https://github.com/jure-ve/jureminimalblog
 Author: Jure
 Author URI: https://juredev.com
 Description: A clean and minimalist WordPress theme designed to focus on content. Simple, fast, and multilingual (English/Spanish). Perfect for bloggers who value readability above all else.
-Version: 1.3
+Version: 1.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: jure-minimal-blog
@@ -110,9 +110,6 @@ code {
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.9em;
     color: #c9d1d9;
-    display: block;
-    overflow-x: auto;
-    white-space: pre;
 }
 
 pre {
@@ -131,7 +128,9 @@ pre code {
     padding: 0;
     background: transparent;
     font-size: 0.95em;
+    display: block;
     white-space: pre !important;
+    overflow-x: auto;
 }
 
 .article {
@@ -191,20 +190,68 @@ ol.commentlist {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.comment .comment-author {
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--accent-color);
+/* Modern Comment Layout */
+.comment-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-start;
+    position: relative;
+    padding-bottom: 10px;
 }
 
-.comment .comment-date {
-    font-size: 14px;
+.comment-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtle separator */
+    padding-bottom: 15px;
+}
+
+.comment-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.comment-author img.avatar {
+    border-radius: 50%;
+    /* Circular avatars */
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: 2px solid var(--accent-color);
+    /* Theme adjustment */
+}
+
+/* Metadata (Date/Edit) alignment */
+.comment-metadata {
+    margin-left: auto;
+    /* Push to right */
+    font-size: 0.85rem;
     color: var(--muted-text);
 }
 
-.comment .comment-content {
-    font-size: 16px;
-    line-height: 1.6;
+.comment-metadata a {
+    color: var(--muted-text);
+    text-decoration: none;
+}
+
+.comment-metadata a:hover {
+    color: var(--accent-color);
+}
+
+.comment-content {
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.7;
+    padding-left: 5px;
+    /* Slight offset */
 }
 
 .comment a {

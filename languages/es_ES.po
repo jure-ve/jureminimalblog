@@ -124,3 +124,59 @@ msgstr "¡Ups! Esa página no se encuentra. Parece que no hay nada en esta ubica
 #: 404.php:29
 msgid "Back to Homepage"
 msgstr "Volver al Inicio"
+
+#: inc/seo.php:57
+msgid "Basic SEO & Performance"
+msgstr "SEO Básico y Rendimiento"
+
+#: inc/seo.php:73
+msgid "Enable Basic SEO & UX Enhancements"
+msgstr "Habilitar mejoras básicas de SEO y UX"
+
+#: inc/seo.php:74
+msgid "Adds lightweight SEO, performance, and UX enhancements for simple blogs. Disable if you use a full SEO plugin."
+msgstr "Añade mejoras ligeras de SEO, rendimiento y UX para blogs sencillos. Desactívalo si usas un plugin completo de SEO."
+
+#: inc/seo.php:91
+msgid "GitHub URL"
+msgstr "URL de GitHub"
+
+#: inc/seo.php:107
+msgid "LinkedIn URL"
+msgstr "URL de LinkedIn"
+
+#: inc/seo.php:124
+msgid "Include Author Bio in Schema"
+msgstr "Incluir biografía del autor en Schema"
+
+#: inc/seo.php:140
+msgid "Enable Breadcrumbs Schema"
+msgstr "Habilitar Schema de Breadcrumbs"
+
+#: inc/seo.php:141
+msgid "Generates BreadcrumbList schema for single posts using the primary category."
+msgstr "Genera el schema BreadcrumbList para entradas individuales usando la categoría principal."
+
+#: inc/seo.php:158
+msgid "Enable Native Lazy Loading"
+msgstr "Habilitar Lazy Loading nativo"
+
+#: inc/seo.php:174
+msgid "Preconnect to Google Fonts/CDN"
+msgstr "Preconectar a Google Fonts/CDN"
+
+#: inc/seo.php:190
+msgid "Enable Scroll to Top Button"
+msgstr "Habilitar botón 'Volver arriba'"
+
+#: inc/seo.php:206
+msgid "Noindex & Redirect Attachment Pages"
+msgstr "Noindex y redireccionar páginas de adjuntos"
+
+#: inc/seo.php:207
+msgid "Redirects attachment pages to their parent post."
+msgstr "Redirige las páginas de archivos adjuntos a su entrada padre."
+
+#: inc/seo.php:461
+msgid "Scroll to top"
+msgstr "Volver arriba"

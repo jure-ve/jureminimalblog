@@ -80,3 +80,9 @@ function jure_minimal_blog_fallback_menu() {
 	echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'jure-minimal-blog' ) . '</a></li>';
 	echo '</ul>';
 }
+
+/**
+ * Load Basic SEO & UX Module.
+ */
+require get_template_directory() . '/inc/seo.php';
+Jure_Minimal_Blog_SEO::get_instance();
