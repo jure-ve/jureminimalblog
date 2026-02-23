@@ -59,6 +59,8 @@ if ( ! function_exists( 'jure_minimal_blog_setup' ) ) :
 				'script',
 			)
 		);
+
+		add_theme_support( 'customize-selective-refresh-widgets' );
 	}
 endif;
 add_action( 'after_setup_theme', 'jure_minimal_blog_setup' );
@@ -67,7 +69,7 @@ add_action( 'after_setup_theme', 'jure_minimal_blog_setup' );
  * Enqueue scripts and styles.
  */
 function jure_minimal_blog_scripts() {
-	wp_enqueue_style( 'jure-minimal-blog-style', get_stylesheet_uri(), array(), '1.3' );
+	wp_enqueue_style( 'jure-minimal-blog-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
 	wp_enqueue_script( 'jure-minimal-blog-search', get_template_directory_uri() . '/assets/search-toggle.js', array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'jure_minimal_blog_scripts' );

@@ -8,7 +8,7 @@
 						<article id="post-<?php the_ID(); ?>" <?php post_class( 'list-post' ); ?>>
 							<div class="header">
 								<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>                
-								<span class="date"><a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a></span>
+								<span class="date"><a href="<?php the_permalink(); ?>"><?php echo esc_html( get_the_date() ); ?></a></span>
 							</div>
 						</article>
 						<hr/>

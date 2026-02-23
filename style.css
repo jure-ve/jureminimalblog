@@ -4,7 +4,7 @@ Theme URI: https://github.com/jure-ve/jureminimalblog
 Author: Jure
 Author URI: https://juredev.com
 Description: A clean and minimalist WordPress theme designed to focus on content. Simple, fast, and multilingual (English/Spanish). Perfect for bloggers who value readability above all else.
-Version: 1.4
+Version: 1.4.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: jure-minimal-blog
@@ -476,11 +476,11 @@ footer {
     }
 
     .list-post .header {
-        margin-left: 0.5;
+        margin-left: 0.5rem;
     }
 
     .list-post .date {
-        margin-right: 0.5;
+        margin-right: 0.5rem;
     }
 
     h1 {
@@ -763,4 +763,21 @@ footer {
     border-color: var(--accent-color);
     color: var(--accent-color);
     background: rgba(90, 130, 155, 0.05);
+}
+
+.scroll-to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    padding: 10px;
+    background: var(--accent-color, #222);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }

@@ -263,7 +263,7 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 			add_action( 'wp_head', array( $this, 'output_meta_tags' ), 1 );
 			add_action( 'wp_head', array( $this, 'output_schema' ), 5 );
 			add_filter( 'wp_robots', array( $this, 'check_robots' ) );
-			add_filter( 'wp_resource_hints', array( $this, 'resource_hints' ), 10, 2 );
+			add_action( 'wp_head', array( $this, 'resource_hints' ), 2 );
 			add_action( 'wp_footer', array( $this, 'scroll_to_top_display' ) );
 			add_action( 'template_redirect', array( $this, 'attachment_redirect' ) );
 			add_filter( 'wp_lazy_loading_enabled', array( $this, 'control_lazy_load' ) );
@@ -516,12 +516,11 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 		/**
 		 * Resource Hints
 		 */
-		public function resource_hints( $urls, $relation_type ) {
-			if ( 'preconnect' === $relation_type && get_theme_mod( 'jure_minimal_blog_enable_preconnect' ) ) {
-				$urls[] = 'https://fonts.googleapis.com';
-				$urls[] = 'https://fonts.gstatic.com';
+		public function resource_hints() {
+			if ( get_theme_mod( 'jure_minimal_blog_enable_preconnect' ) ) {
+				echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
+				echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
 			}
-			return $urls;
 		}
 
 		/**
@@ -555,7 +554,7 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 		public function scroll_to_top_display() {
 			if ( get_theme_mod( 'jure_minimal_blog_enable_scroll_top' ) ) :
 				?>
-				<button id="scroll-to-top" aria-label="<?php esc_attr_e( 'Scroll to top', 'jure-minimal-blog' ); ?>" style="display:none;position:fixed;bottom:20px;right:20px;z-index:999;padding:10px;background:var(--accent-color, #222);color:#fff;border:none;border-radius:50%;cursor:pointer;width:40px;height:40px;box-shadow:0 2px 5px rgba(0,0,0,0.3);">
+				<button id="scroll-to-top" class="scroll-to-top-btn" aria-label="<?php esc_attr_e( 'Scroll to top', 'jure-minimal-blog' ); ?>">
 					&uarr;
 				</button>
 				<script>
