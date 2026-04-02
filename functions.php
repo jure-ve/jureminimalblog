@@ -69,8 +69,12 @@ add_action( 'after_setup_theme', 'jure_minimal_blog_setup' );
  * Enqueue scripts and styles.
  */
 function jure_minimal_blog_scripts() {
-	wp_enqueue_style( 'jure-minimal-blog-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
-	wp_enqueue_script( 'jure-minimal-blog-search', get_template_directory_uri() . '/assets/search-toggle.js', array(), '1.0', true );
+	$is_debug   = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
+	$css_suffix = $is_debug ? '' : '.min';
+	$js_suffix  = $is_debug ? '' : '.min';
+
+	wp_enqueue_style( 'jure-minimal-blog-style', get_template_directory_uri() . '/style' . $css_suffix . '.css', array(), wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_script( 'jure-minimal-blog-search', get_template_directory_uri() . '/assets/search-toggle' . $js_suffix . '.js', array(), wp_get_theme()->get( 'Version' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'jure_minimal_blog_scripts' );
 

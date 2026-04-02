@@ -1,10 +1,10 @@
-/*
+/*!
 Theme Name: Jure Minimal Blog
 Theme URI: https://github.com/jure-ve/jureminimalblog
 Author: Jure
 Author URI: https://juredev.com
 Description: A clean and minimalist WordPress theme designed to focus on content. Simple, fast, and multilingual (English/Spanish). Perfect for bloggers who value readability above all else.
-Version: 1.4.1
+Version: 1.5.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: jure-minimal-blog
@@ -12,10 +12,10 @@ Text Domain: jure-minimal-blog
 
 :root {
     --primary-color: #2a2a2a;
-    --secondary-color: #6b6b6b;
-    --accent-color: #5a829b;
+    --secondary-color: #7f7f7f;
+    --accent-color: #8bb8d5;
     --text-color: #e8e8e8;
-    --muted-text: #a0a0a0;
+    --muted-text: #a8a8a8;
     --article-bg: #383838;
     --code-bg: #1e2526;
     --comment-bg: #383838;
@@ -272,7 +272,7 @@ ol.commentlist {
 }
 
 .comment-respond label {
-    color: #a0a0a0;
+    color: var(--muted-text);
     font-size: 14px;
     margin-bottom: 5px;
     display: block;
@@ -282,9 +282,9 @@ ol.commentlist {
 .comment-respond input[type="email"],
 .comment-respond input[type="url"],
 .comment-respond textarea {
-    background-color: #2a2a2a;
-    color: #e8e8e8;
-    border: 1px solid #6b6b6b;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1px solid var(--secondary-color);
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
@@ -296,14 +296,14 @@ ol.commentlist {
 .comment-respond input[type="email"]:focus,
 .comment-respond input[type="url"]:focus,
 .comment-respond textarea:focus {
-    border-color: #5a829b;
+    border-color: var(--accent-color);
     outline: none;
 }
 
 .comment-respond .form-submit input[type="submit"] {
-    background-color: #5a829b;
-    color: #e8e8e8;
-    border: 1px solid #6b6b6b;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: 1px solid var(--secondary-color);
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;

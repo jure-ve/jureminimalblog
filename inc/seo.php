@@ -38,13 +38,10 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 		 * Constructor
 		 */
 		private function __construct() {
-			// Init Customizer
 			add_action( 'customize_register', array( $this, 'register_controls' ) );
 
-			// Check if we should boot frontend features
 			add_action( 'wp', array( $this, 'maybe_boot_frontend' ) );
 
-			// Meta box for per-post OG image (admin only)
 			add_action( 'add_meta_boxes', array( $this, 'add_og_image_meta_box' ) );
 			add_action( 'save_post', array( $this, 'save_og_image_meta_box' ) );
 		}
@@ -55,7 +52,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		public function register_controls( $wp_customize ) {
-			// Section
 			$wp_customize->add_section(
 				'jure_minimal_blog_seo_section',
 				array(
@@ -64,7 +60,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 				)
 			);
 
-			// 1. Global Switch
 			$wp_customize->add_setting(
 				'jure_minimal_blog_enable_seo',
 				array(
@@ -82,7 +77,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 				)
 			);
 
-			// 2. Social Profiles
 			$wp_customize->add_setting(
 				'jure_minimal_blog_social_github',
 				array(
@@ -115,7 +109,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 				)
 			);
 
-			// 3. Schema Options
 			$wp_customize->add_setting(
 				'jure_minimal_blog_enable_author_bio',
 				array(
@@ -149,7 +142,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 				)
 			);
 
-			// 4. Performance & UX
 			$wp_customize->add_setting(
 				'jure_minimal_blog_native_lazy_load',
 				array(
@@ -215,7 +207,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 				)
 			);
 
-			// 5. Default OG Image
 			$wp_customize->add_setting(
 				'jure_minimal_blog_default_og_image',
 				array(
@@ -244,10 +235,8 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 				return;
 			}
 
-			// 1. Check Global Switch
 			$enabled = get_theme_mod( 'jure_minimal_blog_enable_seo', false );
 
-			// 2. Developer Filter
 			$enabled = apply_filters( 'jure_minimal_blog_enable_seo_frontend', $enabled );
 
 			if ( (bool) $enabled ) {
@@ -306,11 +295,8 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 			echo '<meta property="og:url" content="' . esc_url( $url ) . '" />' . "\n";
 			echo '<meta property="og:site_name" content="' . esc_attr( $site_name ) . '" />' . "\n";
 			echo '<meta property="og:type" content="' . ( is_single() ? 'article' : 'website' ) . '" />' . "\n";
+			echo '<meta property="og:locale" content="' . esc_attr( get_locale() ) . '" />' . "\n";
 
-			// Resolve OG image with fallback chain:
-			// 1. Per-post custom OG image (meta box)
-			// 2. Featured image
-			// 3. Default image from Customizer
 			$img = '';
 			if ( is_singular() ) {
 				$custom_og = get_post_meta( get_the_ID(), '_jure_og_image', true );
@@ -327,7 +313,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 				echo '<meta property="og:image" content="' . esc_url( $img ) . '" />' . "\n";
 			}
 
-			// Twitter Card
 			echo '<meta name="twitter:card" content="' . ( ! empty( $img ) ? 'summary_large_image' : 'summary' ) . '" />' . "\n";
 			echo '<meta name="twitter:title" content="' . esc_attr( $title ) . '" />' . "\n";
 			echo '<meta name="twitter:description" content="' . esc_attr( $desc ) . '" />' . "\n";
@@ -341,12 +326,10 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 		 */
 		public function output_schema() {
 			
-			// Strictly restrict to main query
 			if ( ! is_main_query() ) {
 				return;
 			}
 
-			// Check if we are on a valid post type to avoid "shop_order_placehold" notices
 			if ( ! $this->is_valid_public_single() ) {
 				// but allow home/front page for website schema
 				if ( ! ( is_home() || is_front_page() ) ) {
@@ -356,35 +339,42 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 
 			$schema = array();
 
-			// Global WebSite
 			if ( is_home() || is_front_page() ) {
-				$schema['website'] = array(
-					'@context' => 'https://schema.org',
-					'@type'    => 'WebSite',
-					'name'     => get_bloginfo( 'name' ),
-					'url'      => home_url( '/' ),
+				$website_data = array(
+					'@context'    => 'https://schema.org',
+					'@type'       => 'WebSite',
+					'name'        => get_bloginfo( 'name' ),
+					'url'         => home_url( '/' ),
+					'inLanguage'  => get_bloginfo( 'language' ),
 					'potentialAction' => array(
-						'@type' => 'SearchAction',
-						'target' => home_url( '/?s={search_term_string}' ),
-						'query-input' => 'required name=search_term_string'
-					)
+						'@type'       => 'SearchAction',
+						'target'      => array(
+							'@type'       => 'EntryPoint',
+							'urlTemplate' => home_url( '/?s={search_term_string}' ),
+						),
+						'query-input' => 'required name=search_term_string',
+					),
 				);
+
+				$site_description = get_bloginfo( 'description' );
+				if ( ! empty( $site_description ) ) {
+					$website_data['description'] = $site_description;
+				}
+
+				$schema['website'] = $website_data;
 			}
 
-			// Single Post (Article)
 			if ( is_single() ) {
 				$post_id = get_the_ID();
-				$post = get_post( $post_id ); // Define $post object
+				$post = get_post( $post_id );
 				
-				// 1. Social URLs
 				$social_github = get_theme_mod( 'jure_minimal_blog_social_github' );
 				$social_linkedin = get_theme_mod( 'jure_minimal_blog_social_linkedin' );
 				$same_as = array_values( array_filter( array( $social_github, $social_linkedin ) ) );
 
-				// 2. Author Logic
 				$author_name = get_the_author_meta( 'display_name', $post->post_author );
 				if ( empty( $author_name ) ) {
-					$author_name = get_bloginfo( 'name' ); // Fallback to site name
+					$author_name = get_bloginfo( 'name' );
 				}
 
 				$author_data = array(
@@ -393,7 +383,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 					'url'   => get_author_posts_url( $post->post_author ),
 				);
 
-				// Optional: Author Bio
 				if ( get_theme_mod( 'jure_minimal_blog_enable_author_bio' ) ) {
 					$author_desc = get_the_author_meta( 'description', $post->post_author );
 					if ( ! empty( $author_desc ) ) {
@@ -401,7 +390,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 					}
 				}
 
-				// 3. Publisher Logo Logic
 				$publisher_logo_url = get_site_icon_url( 512 );
 				if ( ! $publisher_logo_url ) {
 					$publisher_logo_url = get_header_image();
@@ -419,7 +407,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 					);
 				}
 
-				// 4. Construct Article Schema
 				$article = array(
 					'@context' => 'https://schema.org',
 					'@type'    => 'BlogPosting',
@@ -427,27 +414,51 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 						'@type' => 'WebPage',
 						'@id'   => get_permalink()
 					),
-					'headline' => get_the_title(),
+					'headline'      => get_the_title(),
+					'inLanguage'    => get_bloginfo( 'language' ),
 					'datePublished' => get_the_date( 'c' ), // ISO 8601
 					'dateModified'  => get_the_modified_date( 'c' ), // ISO 8601
 					'author'        => $author_data,
 					'publisher'     => $publisher_data,
 				);
 
-				// 5. Optional Fields: Image & Description
-				if ( has_post_thumbnail( $post_id ) ) {
-					$article['image'] = get_the_post_thumbnail_url( $post_id, 'full' );
+				$schema_img = '';
+				$custom_og  = get_post_meta( $post_id, '_jure_og_image', true );
+				if ( ! empty( $custom_og ) ) {
+					$schema_img = $custom_og;
+				} elseif ( has_post_thumbnail( $post_id ) ) {
+					$schema_img = get_the_post_thumbnail_url( $post_id, 'full' );
+				} else {
+					$schema_img = get_theme_mod( 'jure_minimal_blog_default_og_image', '' );
+				}
+				if ( ! empty( $schema_img ) ) {
+					$article['image'] = $schema_img;
 				}
 
+				$content_raw = get_post_field( 'post_content', $post_id );
 				if ( has_excerpt( $post_id ) ) {
 					$article['description'] = wp_strip_all_tags( get_the_excerpt( $post_id ) );
-				} else {
-					// Auto-generate description from content if excerpt is empty
-					$content = get_post_field( 'post_content', $post_id );
-					// Check if content exists before trimming
-                    if ( ! empty( $content ) ) {
-                        $article['description'] = wp_trim_words( wp_strip_all_tags( $content ), 25 );
-                    }
+				} elseif ( ! empty( $content_raw ) ) {
+					$article['description'] = wp_trim_words( wp_strip_all_tags( $content_raw ), 25 );
+				}
+
+				if ( ! empty( $content_raw ) ) {
+					$word_count = str_word_count( wp_strip_all_tags( $content_raw ) );
+					if ( $word_count > 0 ) {
+						$article['wordCount'] = $word_count;
+					}
+				}
+
+				$post_categories = get_the_category( $post_id );
+				if ( ! empty( $post_categories ) ) {
+					$article['articleSection'] = $post_categories[0]->name;
+				}
+
+				$post_tags = get_the_tags( $post_id );
+				if ( $post_tags ) {
+					$article['keywords'] = array_map( function( $tag ) {
+						return $tag->name;
+					}, $post_tags );
 				}
 
 				if ( ! empty( $same_as ) ) {
@@ -456,7 +467,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 
 				$schema['article'] = $article;
 
-				// Breadcrumbs (Optional)
 				if ( get_theme_mod( 'jure_minimal_blog_enable_breadcrumbs_schema' ) ) {
 					$categories = get_the_category();
 					if ( ! empty( $categories ) ) {
@@ -464,12 +474,11 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 						$items[] = array(
 							'@type' => 'ListItem',
 							'position' => 1,
-							'name' => 'Home',
+							'name' => esc_html__( 'Home', 'jure-minimal-blog' ),
 							'item' => home_url( '/' )
 						);
 						
 						$depth = 2;
-						// Primary category (first one)
 						$cat = $categories[0];
 						$items[] = array(
 							'@type' => 'ListItem',
@@ -494,7 +503,6 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 				}
 			}
 
-			// Output
 			if ( ! empty( $schema ) ) {
 				foreach ( $schema as $type => $data ) {
 					echo '<script type="application/ld+json">' . wp_json_encode( $data ) . '</script>' . "\n";

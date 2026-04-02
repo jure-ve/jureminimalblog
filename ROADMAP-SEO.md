@@ -105,4 +105,16 @@ Este análisis se centra en evitar que los cambios en el código rompan la funci
 ## Roadmap
 - **v1.3**: Módulo SEO base implementado (meta tags, JSON-LD, schema, attachment redirect, scroll-to-top).
 - **v1.4** ✅: Imagen OG con fallback (Customizer + Meta Box por post). Fix CSS `<code>` inline. Reactivación de `meta description`.
-- **v1.5** (futuro): Detección automática de plugins SEO populares para evitar conflictos. Localización de Google Fonts.
+- **v1.5** ✅: Schema & Meta enriquecido:
+    - `inLanguage` en WebSite y BlogPosting schemas (declaración explícita de idioma).
+    - `og:locale` meta tag.
+    - `SearchAction.target` refactorizado a formato `EntryPoint` con `urlTemplate` (RFC 6570).
+    - `description` en WebSite schema (tagline del sitio).
+    - `wordCount`, `articleSection`, `keywords` en BlogPosting schema.
+    - Cadena de fallback de imagen unificada entre OG meta tags y JSON-LD schema.
+    - i18n del string `"Home"` en BreadcrumbList schema.
+- **v1.6** ✅: Rendimiento y Build System:
+    - Integración de `npm` y `package.json` para automatización (clean-css, terser).
+    - Autogeneración de `style.min.css` y `assets/search-toggle.min.js`.
+    - Lógica de encolado condicional (`SCRIPT_DEBUG`) en `functions.php`.
+- **v1.7** (futuro): Detección automática de plugins SEO populares para evitar conflictos. Localización de Google Fonts.

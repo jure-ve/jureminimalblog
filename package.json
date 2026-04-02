@@ -1,0 +1,15 @@
+{
+  "name": "jure-minimal-blog",
+  "version": "1.5.0",
+  "description": "Jure Minimal Blog Theme",
+  "scripts": {
+    "build:css": "cleancss -o style.min.css style.css",
+    "build:js": "terser assets/search-toggle.js -o assets/search-toggle.min.js -c -m",
+    "build": "npm-run-all build:css build:js"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "npm-run-all": "^4.1.5",
+    "terser": "^5.31.0"
+  }
+}
