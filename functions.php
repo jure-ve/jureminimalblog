@@ -69,14 +69,41 @@ add_action( 'after_setup_theme', 'jure_minimal_blog_setup' );
  * Enqueue scripts and styles.
  */
 function jure_minimal_blog_scripts() {
-	$is_debug   = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
-	$css_suffix = $is_debug ? '' : '.min';
-	$js_suffix  = $is_debug ? '' : '.min';
+    $is_debug   = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
+    $css_suffix = $is_debug ? '' : '.min';
+    $js_suffix  = $is_debug ? '' : '.min';
 
-	wp_enqueue_style( 'jure-minimal-blog-style', get_template_directory_uri() . '/style' . $css_suffix . '.css', array(), wp_get_theme()->get( 'Version' ) );
-	wp_enqueue_script( 'jure-minimal-blog-search', get_template_directory_uri() . '/assets/search-toggle' . $js_suffix . '.js', array(), wp_get_theme()->get( 'Version' ), true );
+    wp_enqueue_style(
+        'jure-minimal-blog-style',
+        get_template_directory_uri() . '/style' . $css_suffix . '.css',
+        array(),
+        wp_get_theme()->get( 'Version' )
+    );
+
+    wp_enqueue_script(
+        'jure-minimal-blog-search',
+        get_template_directory_uri() . '/assets/search-toggle' . $js_suffix . '.js',
+        array(),
+        wp_get_theme()->get( 'Version' ),
+        array(
+            'strategy'  => 'defer',
+            'in_footer' => true,
+        )
+    );
 }
 add_action( 'wp_enqueue_scripts', 'jure_minimal_blog_scripts' );
+
+/**
+ * Preconnect correcto: solo origen, sin path.
+ */
+function jure_add_preconnect_hints() {
+    $parsed = wp_parse_url( home_url() );
+    $clean  = $parsed['scheme'] . '://' . $parsed['host'];
+
+    echo '<link rel="preconnect" href="' . esc_url( $clean ) . '">' . "\n";
+    echo '<link rel="dns-prefetch" href="' . esc_url( $clean ) . '">' . "\n";
+}
+add_action( 'wp_head', 'jure_add_preconnect_hints', 1 );
 
 /**
  * Fallback menu for primary-menu.
