@@ -66,19 +66,24 @@ endif;
 add_action( 'after_setup_theme', 'jure_minimal_blog_setup' );
 
 /**
- * Enqueue scripts and styles.
+ * Enqueue scripts and inline styles.
  */
-function jure_minimal_blog_scripts() {
+function jure_minimal_blog_inline_styles() {
     $is_debug   = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
     $css_suffix = $is_debug ? '' : '.min';
-    $js_suffix  = $is_debug ? '' : '.min';
+    $css_file   = get_template_directory() . '/style' . $css_suffix . '.css';
+    
+    if ( file_exists( $css_file ) ) {
+        echo "<style id='jure-minimal-blog-style-inline'>\n";
+        echo file_get_contents( $css_file );
+        echo "\n</style>\n";
+    }
+}
+add_action( 'wp_head', 'jure_minimal_blog_inline_styles', 10 );
 
-    wp_enqueue_style(
-        'jure-minimal-blog-style',
-        get_template_directory_uri() . '/style' . $css_suffix . '.css',
-        array(),
-        wp_get_theme()->get( 'Version' )
-    );
+function jure_minimal_blog_scripts() {
+    $is_debug   = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
+    $js_suffix  = $is_debug ? '' : '.min';
 
     wp_enqueue_script(
         'jure-minimal-blog-search',

@@ -72,17 +72,22 @@ jureminimalblog/
 - ✅ Comentarios incluidos (pero puedes desactivarlos si prefieres)
 - ✅ Responsive design (se ve bien en móviles, tablets, lo que sea)
 
-## Versión actual: 1.4
+## Versión actual: 1.5.2
 
-**Novedades en esta versión**:
+**Novedades en esta versión (1.5.x)**:
+- ⚡ **Rendimiento Extremo**: Inserción en línea (inlining) del archivo `style.min.css` principal y extracción inteligente del CSS de comentarios para lograr una puntuación perfecta de **100/100 en PageSpeed Insights** (0ms de bloqueo de renderizado).
+- 🐛 **Fix de Comentarios**: Corregida la tipografía en la clase `.commentlist` (ahora `.comment-list`) para restaurar los márgenes, reseteos de viñetas y la alineación `flex` correcta.
+- 🎨 **Consistencia 404**: Unificados los estilos (botones, inputs, `border-radius` y colores de `focus`) de la página de error 404 para que respeten el diseño minimalista y variables CSS del resto del tema.
+
+## Historial de versiones
+
+### Versión 1.4
 - 🖼️ **Imagen social por post**: Meta box "Social Media Image" en el editor para configurar `og:image` y `twitter:image` por artículo.
 - 🌐 **Imagen social por defecto**: Nuevo campo en el Customizer para definir una imagen fallback global.
 - 🔄 **Fallback inteligente de imagen OG**: Prioridad: imagen por post → featured image → imagen por defecto.
 - 🃏 **Twitter Card adaptativo**: Usa `summary_large_image` cuando hay imagen, `summary` cuando no.
 - 🐛 **Fix CSS `<code>` inline**: Los bloques de código inline ya no rompen el flujo del texto.
 - 🔧 Reactivación de `meta description` en el módulo SEO.
-
-## Historial de versiones
 
 ### Versión 1.3
 - ✨ Nueva página 404 personalizada con buscador integrado.

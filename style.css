@@ -4,7 +4,7 @@ Theme URI: https://github.com/jure-ve/jureminimalblog
 Author: Jure
 Author URI: https://juredev.com
 Description: A clean and minimalist WordPress theme designed to focus on content. Simple, fast, and multilingual (English/Spanish). Perfect for bloggers who value readability above all else.
-Version: 1.5.0
+Version: 1.5.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: jure-minimal-blog
@@ -175,144 +175,6 @@ pre code {
     line-height: 1.7;
 }
 
-ol.commentlist {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.comment {
-    background-color: var(--comment-bg);
-    color: var(--text-color);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Modern Comment Layout */
-.comment-body {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: flex-start;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.comment-meta {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    /* Subtle separator */
-    padding-bottom: 15px;
-}
-
-.comment-author {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.comment-author img.avatar {
-    border-radius: 50%;
-    /* Circular avatars */
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border: 2px solid var(--accent-color);
-    /* Theme adjustment */
-}
-
-/* Metadata (Date/Edit) alignment */
-.comment-metadata {
-    margin-left: auto;
-    /* Push to right */
-    font-size: 0.85rem;
-    color: var(--muted-text);
-}
-
-.comment-metadata a {
-    color: var(--muted-text);
-    text-decoration: none;
-}
-
-.comment-metadata a:hover {
-    color: var(--accent-color);
-}
-
-.comment-content {
-    width: 100%;
-    font-size: 1rem;
-    line-height: 1.7;
-    padding-left: 5px;
-    /* Slight offset */
-}
-
-.comment a {
-    color: var(--accent-color);
-    text-decoration: underline;
-}
-
-.comment a:hover {
-    color: #6a9cbf;
-}
-
-.comment-respond {
-    background-color: #383838;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.comment-respond label {
-    color: var(--muted-text);
-    font-size: 14px;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.comment-respond input[type="text"],
-.comment-respond input[type="email"],
-.comment-respond input[type="url"],
-.comment-respond textarea {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    border: 1px solid var(--secondary-color);
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 3px;
-    font-size: 16px;
-}
-
-.comment-respond input[type="text"]:focus,
-.comment-respond input[type="email"]:focus,
-.comment-respond input[type="url"]:focus,
-.comment-respond textarea:focus {
-    border-color: var(--accent-color);
-    outline: none;
-}
-
-.comment-respond .form-submit input[type="submit"] {
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    border: 1px solid var(--secondary-color);
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-.comment-respond .form-submit input[type="submit"]:hover {
-    background-color: #6a9cbf;
-}
 
 a {
     color: var(--accent-color);
@@ -708,9 +570,9 @@ footer {
     width: 100%;
     padding: 12px 20px;
     border: 1px solid var(--secondary-color);
-    background-color: transparent;
+    background-color: var(--primary-color);
     color: var(--text-color);
-    border-radius: 0;
+    border-radius: 3px;
     font-size: 1.1rem;
     transition: all 0.3s ease;
     box-shadow: none;
@@ -720,29 +582,25 @@ footer {
 .error-404-search input[type="text"]:focus {
     outline: none;
     border-color: var(--accent-color);
-    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .error-404-search .search-submit,
 .error-404-search input[type="submit"] {
-    position: static;
-    transform: none;
     background-color: var(--accent-color);
-    color: #fff;
-    border: none;
+    color: var(--text-color);
+    border: 1px solid var(--secondary-color);
     padding: 0 25px;
-    border-radius: 0;
+    border-radius: 3px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: background-color 0.2s ease;
     white-space: nowrap;
 }
 
 .error-404-search .search-submit:hover,
 .error-404-search input[type="submit"]:hover {
     background-color: #6a9cbf;
-    transform: translateY(-1px);
 }
 
 .back-to-home {
@@ -751,18 +609,17 @@ footer {
 
 .back-to-home a {
     display: inline-block;
-    padding: 0.8em 2em;
+    padding: 10px 20px;
+    background-color: var(--accent-color);
     border: 1px solid var(--secondary-color);
     color: var(--text-color);
-    border-radius: 0;
+    border-radius: 3px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background-color 0.2s ease;
 }
 
 .back-to-home a:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-    background: rgba(90, 130, 155, 0.05);
+    background-color: #6a9cbf;
 }
 
 .scroll-to-top-btn {
