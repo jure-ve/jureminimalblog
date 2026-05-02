@@ -72,14 +72,19 @@ jureminimalblog/
 - ✅ Comentarios incluidos (pero puedes desactivarlos si prefieres)
 - ✅ Responsive design (se ve bien en móviles, tablets, lo que sea)
 
-## Versión actual: 1.5.2
+## Versión actual: 1.5.3
 
 **Novedades en esta versión (1.5.x)**:
-- ⚡ **Rendimiento Extremo**: Inserción en línea (inlining) del archivo `style.min.css` principal y extracción inteligente del CSS de comentarios para lograr una puntuación perfecta de **100/100 en PageSpeed Insights** (0ms de bloqueo de renderizado).
-- 🐛 **Fix de Comentarios**: Corregida la tipografía en la clase `.commentlist` (ahora `.comment-list`) para restaurar los márgenes, reseteos de viñetas y la alineación `flex` correcta.
-- 🎨 **Consistencia 404**: Unificados los estilos (botones, inputs, `border-radius` y colores de `focus`) de la página de error 404 para que respeten el diseño minimalista y variables CSS del resto del tema.
+- ♿ **Accesibilidad Total (100/100)**: Corregidos ratios de contraste en botones y navegación, y habilitado el subrayado global de enlaces para cumplir con WCAG.
+- 📱 **Optimización Táctil (Touch Targets)**: Aumentado el tamaño de inputs, botones y selectores de cookies (mínimo 48px) para una mejor usabilidad móvil.
+- 🔍 **SEO de Paginación y Schema**: Enlaces canónicos inteligentes, descripciones dinámicas ("Página X") y esquema de artículos (`BlogPosting`) en la portada para una máxima visibilidad en buscadores.
+- ⚡ **Rendimiento Extremo**: Inserción en línea (inlining) del archivo `style.min.css` principal y extracción inteligente del CSS de comentarios para lograr una puntuación perfecta de **100/100 en PageSpeed Insights**.
 
 ## Historial de versiones
+
+### Versión 1.5.2
+- 🐛 **Fix de Comentarios**: Corregida la tipografía en la clase `.commentlist` (ahora `.comment-list`) para restaurar los márgenes, reseteos de viñetas y la alineación `flex` correcta.
+- 🎨 **Consistencia 404**: Unificados los estilos (botones, inputs, `border-radius` y colores de `focus`) de la página de error 404.
 
 ### Versión 1.4
 - 🖼️ **Imagen social por post**: Meta box "Social Media Image" en el editor para configurar `og:image` y `twitter:image` por artículo.

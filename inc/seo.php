@@ -256,6 +256,9 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 			add_action( 'wp_footer', array( $this, 'scroll_to_top_display' ) );
 			add_action( 'template_redirect', array( $this, 'attachment_redirect' ) );
 			add_filter( 'wp_lazy_loading_enabled', array( $this, 'control_lazy_load' ) );
+			
+			// Remove default WordPress canonical to avoid duplicates
+			remove_action( 'wp_head', 'rel_canonical' );
 		}
 
 		/**
@@ -274,8 +277,7 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 			}
 
 			$title = wp_get_document_title();
-			$url   = get_permalink();
-			$site_name = get_bloginfo( 'name' );
+			$url   = $this->get_canonical_url();
 			$desc  = get_bloginfo( 'description' );
 
 			if ( is_singular() && has_excerpt() ) {
@@ -286,10 +288,28 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 					$text = wp_strip_all_tags( $post->post_content );
 					$desc = wp_trim_words( $text, 25 );
 				}
+			} elseif ( is_category() || is_tag() || is_archive() ) {
+				$desc = wp_strip_all_tags( get_the_archive_description() );
+				if ( empty( $desc ) ) {
+					$desc = get_bloginfo( 'description' );
+				}
 			}
 
-			// Open Graph
+			// Handle pagination in description
+			$paged = max( 1, get_query_var( 'paged' ), get_query_var( 'page' ) );
+			if ( $paged > 1 ) {
+				$desc .= sprintf( ' - %s %d', esc_html__( 'Page', 'jure-minimal-blog' ), $paged );
+			}
+
+			$site_name = get_bloginfo( 'name' );
+
+			// Canonical
+			echo '<link rel="canonical" href="' . esc_url( $url ) . '" />' . "\n";
+
+			// Basic Meta
 			echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
+
+			// Open Graph
 			echo '<meta property="og:title" content="' . esc_attr( $title ) . '" />' . "\n";
 			echo '<meta property="og:description" content="' . esc_attr( $desc ) . '" />' . "\n";
 			echo '<meta property="og:url" content="' . esc_url( $url ) . '" />' . "\n";
@@ -362,6 +382,32 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 				}
 
 				$schema['website'] = $website_data;
+
+				// Add Blog Schema with posts for the homepage
+				global $wp_query;
+				if ( ! empty( $wp_query->posts ) ) {
+					$blog_posts = array();
+					foreach ( $wp_query->posts as $p ) {
+						$blog_posts[] = array(
+							'@type'         => 'BlogPosting',
+							'headline'      => get_the_title( $p->ID ),
+							'url'           => get_permalink( $p->ID ),
+							'datePublished' => get_the_date( 'c', $p->ID ),
+							'dateModified'  => get_post_modified_time( 'c', false, $p->ID ),
+							'author'        => array(
+								'@type' => 'Person',
+								'name'  => get_the_author_meta( 'display_name', $p->post_author ),
+							),
+						);
+					}
+					$schema['blog'] = array(
+						'@context' => 'https://schema.org',
+						'@type'    => 'Blog',
+						'name'     => get_bloginfo( 'name' ),
+						'description' => $site_description,
+						'blogPost' => $blog_posts,
+					);
+				}
 			}
 
 			if ( is_single() ) {
@@ -692,6 +738,45 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * Helper: Get the current canonical URL.
+	 */
+	private function get_canonical_url() {
+		global $wp;
+
+		$paged = max( 1, get_query_var( 'paged' ), get_query_var( 'page' ) );
+
+		if ( is_singular() ) {
+			$url = get_permalink();
+		} elseif ( is_front_page() || is_home() ) {
+			$url = home_url( '/' );
+		} elseif ( is_category() ) {
+			$url = get_category_link( get_queried_object_id() );
+		} elseif ( is_tag() ) {
+			$url = get_tag_link( get_queried_object_id() );
+		} elseif ( is_author() ) {
+			$url = get_author_posts_url( get_queried_object_id() );
+		} elseif ( is_post_type_archive() ) {
+			$url = get_post_type_archive_link( get_post_type() );
+		} elseif ( is_search() ) {
+			$url = home_url( '/' );
+			$url = add_query_arg( 's', get_search_query(), $url );
+			if ( $paged > 1 ) {
+				$url = add_query_arg( 'paged', $paged, $url );
+			}
+			return $url;
+		} else {
+			$url = home_url( $wp->request );
+		}
+
+		// Add pagination suffix if necessary (except for search which is handled above)
+		if ( $paged > 1 ) {
+			$url = user_trailingslashit( trailingslashit( $url ) . 'page/' . $paged );
+		}
+
+		return $url;
 	}
 }
 

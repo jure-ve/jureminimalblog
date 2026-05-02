@@ -131,7 +131,7 @@ if ( post_password_required() ) {
     background-color: var(--primary-color);
     color: var(--text-color);
     border: 1px solid var(--secondary-color);
-    padding: 10px;
+    padding: 13px;
     width: 100%;
     box-sizing: border-box;
     border-radius: 3px;
@@ -148,9 +148,9 @@ if ( post_password_required() ) {
 
 .comment-respond .form-submit input[type="submit"] {
     background-color: var(--accent-color);
-    color: var(--text-color);
+    color: #1a1a1a;
     border: 1px solid var(--secondary-color);
-    padding: 10px 20px;
+    padding: 13px 25px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 3px;
@@ -158,6 +158,29 @@ if ( post_password_required() ) {
 
 .comment-respond .form-submit input[type="submit"]:hover {
     background-color: #6a9cbf;
+}
+
+.comment-respond p {
+    margin-bottom: 15px;
+}
+
+.comment-form-cookies-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.comment-form-cookies-consent input {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.comment-form-cookies-consent label {
+    display: inline;
+    margin: 0;
+    line-height: 1.4;
 }
 </style>
 

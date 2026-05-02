@@ -1,6 +1,6 @@
 {
   "name": "jure-minimal-blog",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Jure Minimal Blog Theme",
   "scripts": {
     "build:css": "cleancss -o style.min.css style.css",
