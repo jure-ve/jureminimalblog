@@ -306,6 +306,19 @@ if ( ! class_exists( 'Jure_Minimal_Blog_SEO' ) ) :
 			// Canonical
 			echo '<link rel="canonical" href="' . esc_url( $url ) . '" />' . "\n";
 
+			// Prev/Next for paginated archives
+			if ( ! is_singular() ) {
+				global $wp_query;
+				$max_page = (int) $wp_query->max_num_pages;
+
+				if ( $paged > 1 ) {
+					echo '<link rel="prev" href="' . esc_url( get_pagenum_link( $paged - 1 ) ) . '" />' . "\n";
+				}
+				if ( $paged < $max_page ) {
+					echo '<link rel="next" href="' . esc_url( get_pagenum_link( $paged + 1 ) ) . '" />' . "\n";
+				}
+			}
+
 			// Basic Meta
 			echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
 
